@@ -33,7 +33,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  // هنا حددت الـ base path ليطابق إعداد Vite
+  history: createWebHistory('/finalproject_vue/'),
   routes,
 })
 
