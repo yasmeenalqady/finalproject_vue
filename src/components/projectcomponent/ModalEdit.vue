@@ -168,11 +168,11 @@ function close() {
   emit("close");
 }
 
+
 function updateProject() {
   emit("update", { ...form });
-  close();
+  close(); // ← هذا يغلق المودال مباشرة بعد التعديل
 }
-
 function handleImageChange(event) {
   const file = event.target.files[0];
   if (file) {
