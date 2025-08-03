@@ -1,13 +1,14 @@
 <template>
   <div
     v-if="visible"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center overflow-y-auto px-2 py-6"
     @click="close"
   >
-    <div
-      class="bg-white dark:bg-gray-800 w-full max-w-lg mx-4 rounded-lg shadow-lg p-6 relative"
-      @click.stop
-    >
+  <div
+  class="bg-white dark:bg-gray-800 w-full max-w-lg rounded-lg shadow-lg p-4 sm:p-6 relative mx-auto mt-16"
+  @click.stop
+>
+
       <button
         @click="close"
         class="absolute top-2 left-2 text-gray-400 hover:text-gray-700 text-3xl font-bold"
@@ -117,17 +118,18 @@
           </div>
         </div>
 
-        <div class="flex justify-between mt-6">
+        <!-- الأزرار -->
+        <div class="flex flex-col sm:flex-row justify-between gap-2 mt-6">
           <button
             type="button"
             @click="close"
-            class="px-4 py-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200"
+            class="w-full sm:w-auto px-4 py-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200"
           >
             إلغاء
           </button>
           <button
             type="submit"
-            class="px-4 py-2 rounded bg-secondary hover:bg-secondary-200 text-white"
+            class="w-full sm:w-auto px-4 py-2 rounded bg-secondary hover:bg-secondary-200 text-white"
           >
             حفظ
           </button>
@@ -164,9 +166,9 @@ function handleFileChange(event) {
   if (file) {
     const reader = new FileReader();
     reader.onload = () => {
-      form.image = reader.result; // Base64 URL
+      form.image = reader.result; // Base64
     };
-    reader.readAsDataURL(file); // يحول الصورة إلى Base64
+    reader.readAsDataURL(file);
   } else {
     form.image = null;
   }

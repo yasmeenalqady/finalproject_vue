@@ -1,11 +1,11 @@
 <template>
   <div
     v-if="visible"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 overflow-y-auto px-2 py-6"
     @click.self="close"
   >
     <div
-      class="bg-white dark:bg-gray-800 w-full max-w-lg mx-4 rounded-lg shadow-lg p-6 relative"
+      class="bg-white dark:bg-gray-800 w-full max-w-lg rounded-lg shadow-lg p-4 sm:p-6 relative mx-auto mt-16"
     >
       <button
         @click="close"
@@ -14,9 +14,8 @@
       >
         &times;
       </button>
-      <h2
-        class="text-xl font-bold mb-4 text-center text-gray-800 dark:text-white"
-      >
+
+      <h2 class="text-xl font-bold mb-4 text-center text-gray-800 dark:text-white">
         تعديل بيانات المشروع
       </h2>
 
@@ -105,25 +104,27 @@
             class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-200"
           />
 
-          <!-- عرض معاينة للصورة -->
           <div v-if="form.image" class="mt-2">
             <img
               :src="form.image"
               alt="معاينة الصورة"
-              class="w-24 h-24 rounded-full object-cover border"
+              class="w-24 h-24 rounded-full object-cover border mx-auto"
             />
           </div>
         </div>
 
-        <div class="flex justify-between mt-6">
+        <div class="flex flex-col sm:flex-row justify-between gap-2 mt-6">
           <button
             type="button"
             @click="close"
-            class="px-4 py-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200"
+            class="w-full sm:w-auto px-4 py-2 rounded bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200"
           >
             إلغاء
           </button>
-          <button type="submit" class="px-4 py-2 rounded bg-primary hover:bg-primary-200 text-white">
+          <button
+            type="submit"
+            class="w-full sm:w-auto px-4 py-2 rounded bg-primary hover:bg-primary-200 text-white"
+          >
             حفظ التعديلات
           </button>
         </div>
@@ -150,10 +151,9 @@ const form = reactive({
   startDate: "",
   endDate: "",
   status: "",
-  image: "", // لإدخال أو تعديل صورة المشروع
+  image: "",
 });
 
-// مزامنة البيانات عند فتح المودال
 watch(
   () => props.project,
   (newProject) => {
@@ -164,18 +164,15 @@ watch(
   { immediate: true }
 );
 
-// إغلاق المودال
 function close() {
   emit("close");
 }
 
-// تحديث بيانات المشروع
 function updateProject() {
   emit("update", { ...form });
   close();
 }
 
-// تحويل الصورة إلى base64 عند التعديل
 function handleImageChange(event) {
   const file = event.target.files[0];
   if (file) {
