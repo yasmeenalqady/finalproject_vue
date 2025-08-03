@@ -98,16 +98,16 @@
         class="min-w-[700px] w-full table-fixed text-sm md:text-base text-right border-collapse"
       >
         <thead>
-          <tr class="bg-primary text-white text-sm">
+          <tr class="bg-primary text-white text-sm py-2">
             <th class="px-2 py-1 w-8">#</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words">الصورة</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words">اسم المشروع</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words">مدير المشروع</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words hidden md:table-cell">المجال</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words hidden md:table-cell">تاريخ البداية</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words hidden md:table-cell">تاريخ الانتهاء</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words hidden lg:table-cell">الحالة</th>
-            <th class="px-2 py-1 whitespace-nowrap break-words">الإجراءات</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words">الصورة</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words">اسم المشروع</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words">مدير المشروع</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words hidden md:table-cell">المجال</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words hidden md:table-cell">تاريخ البداية</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words hidden md:table-cell">تاريخ الانتهاء</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words hidden lg:table-cell">الحالة</th>
+            <th class="px-2 py-4 whitespace-nowrap break-words">الإجراءات</th>
           </tr>
         </thead>
         <tbody>
@@ -196,7 +196,7 @@
       class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition flex items-center gap-2"
     >
       <i class="fa-solid fa-trash"></i>
-      عرض المشاريع المحذوفة
+       المشاريع المحذوفة
     </button>
   </div>
 
@@ -453,13 +453,16 @@ function addProject(newProject) {
 
 // تحديث مشروع موجود
 function updateProject(updatedProject) {
-  const index = projects.value.findIndex((p) => p.id === updatedProject.id);
+  const index = projects.value.findIndex(p => p.id === updatedProject.id);
   if (index !== -1) {
     projects.value[index] = { ...updatedProject };
-    saveProjects();
+    saveProjects(); // احفظ التغييرات بعد التحديث
   }
+
+  // أغلق المودال مباشرة بعد التحديث
   showEditModal.value = false;
 }
+
 
 // فتح مودال التعديل مع تمرير نسخة من المشروع
 function openEditModal(project) {

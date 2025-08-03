@@ -11,7 +11,7 @@
       <!-- تاريخ البداية -->
       <div class="flex flex-col gap-1">
         <label for="dateFrom" class="font-semibold text-gray-700 dark:text-gray-300">
-          📅 تاريخ البداية من:
+           تاريخ البداية من:
         </label>
         <input
           type="date"
@@ -24,7 +24,7 @@
       <!-- تاريخ الانتهاء -->
       <div class="flex flex-col gap-1">
         <label for="dateTo" class="font-semibold text-gray-700 dark:text-gray-300">
-          🕓 تاريخ الانتهاء إلى:
+           تاريخ الانتهاء إلى:
         </label>
         <input
           type="date"
@@ -37,7 +37,7 @@
       <!-- الحالة -->
       <div class="flex flex-col gap-1">
         <label for="status" class="font-semibold text-gray-700 dark:text-gray-300">
-          📌 الحالة:
+           الحالة:
         </label>
         <select id="status" v-model="localFilters.status" class="form-input">
           <option value="">كل الحالات</option>
@@ -51,7 +51,7 @@
       <!-- القسم -->
       <div class="flex flex-col gap-1">
         <label for="department" class="font-semibold text-gray-700 dark:text-gray-300">
-          🏢 القسم:
+           القسم:
         </label>
         <select id="department" v-model="localFilters.department" class="form-input">
           <option value="">كل الأقسام</option>
@@ -68,13 +68,13 @@
           @click="clear"
           class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-2 rounded transition"
         >
-          🧹 مسح
+           مسح
         </button>
         <button
           type="submit"
           class="flex-1 bg-primary hover:bg-primary-dark text-white px-3 py-2 rounded transition"
         >
-          ✅ تطبيق
+           تطبيق
         </button>
       </div>
     </form>

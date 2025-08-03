@@ -174,8 +174,19 @@ function handleFileChange(event) {
   }
 }
 
+function resetForm() {
+  form.name = "";
+  form.manager = "";
+  form.field = "";
+  form.startDate = "";
+  form.endDate = "";
+  form.status = "";
+  form.image = null;
+}
+
 function submitProject() {
   emit("save", { ...form });
-  close();
+  resetForm(); // ← تفرغ الحقول بعد الحفظ
+  close();     // ← يغلق المودال
 }
 </script>
