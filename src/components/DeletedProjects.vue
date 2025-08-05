@@ -26,10 +26,11 @@
         <div
           class="bg-white dark:bg-gray-800 p-4 rounded shadow mb-6 transition-colors duration-500 flex items-end justify-between"
         >
-          <div class="text-right flex-1">
-            <h1 class="text-2xl font-bold">المشاريع المحذوفة</h1>
-            <p class="text-sm text-gray-500 dark:text-gray-400">هنا يمكنك استعادة أو حذف المشاريع نهائيًا</p>
-          </div>
+         <div class="text-right flex-1">
+      <h1 class="text-2xl font-bold">  المشاريع المحذوفة</h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400">هنا يمكنك استعادة أو حذف المشاريع نهائيًا</p>
+    </div>
+
           <div class="flex-shrink-0 ml-4">
             <img
               src="https://i.pravatar.cc/100?img=13"
@@ -46,10 +47,10 @@
             <thead>
               <tr class="bg-primary text-white text-sm">
                 <th class="px-2 py-1 w-8">#</th>
-                <th class="px-2 py-1 whitespace-nowrap break-words">اسم المشروع</th>
-                <th class="px-2 py-1 whitespace-nowrap break-words">مدير المشروع</th>
-                <th class="px-2 py-1 whitespace-nowrap break-words">الحالة</th>
-                <th class="px-2 py-1 whitespace-nowrap break-words">إجراءات</th>
+                <th class="px-2 py-4 whitespace-nowrap break-words">اسم المشروع</th>
+                <th class="px-2 py-4 whitespace-nowrap break-words">مدير المشروع</th>
+                <th class="px-2 py-4 whitespace-nowrap break-words">الحالة</th>
+                <th class="px-2 py-4 whitespace-nowrap break-words">إجراءات</th>
               </tr>
             </thead>
             <tbody>
@@ -58,11 +59,11 @@
                 :key="project.id"
                 class="border-b border-gray-300 dark:border-gray-700"
               >
-                <td class="px-2 py-1 text-center">{{ index + 1 }}</td>
-                <td class="px-2 py-1 break-words">{{ project.name }}</td>
-                <td class="px-2 py-1 break-words">{{ project.manager }}</td>
+                <td class="px-2 py-4 text-center">{{ index + 1 }}</td>
+                <td class="px-2 py-4 break-words">{{ project.name }}</td>
+                <td class="px-2 py-4 break-words">{{ project.manager }}</td>
                 <td
-                  class="px-2 py-1 break-words"
+                  class="px-2 py-4 break-words"
                   :class="statusClassColor(project.status)"
                 >
                   {{ project.status }}
@@ -70,7 +71,7 @@
                 <td class="px-2 py-1 flex flex-row-reverse gap-2 justify-end">
                   <button
                     @click="restoreProject(project.id)"
-                    class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded transition flex items-center gap-2"
+                    class="hover:bg-green-700 text-green-600 px-3 py-4 rounded transition flex items-center gap-2"
                     title="استعادة المشروع"
                   >
                     <i class="fa-solid fa-rotate-left"></i>
@@ -78,7 +79,7 @@
                   </button>
                   <button
                     @click="confirmPermanentDelete(project.id)"
-                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded transition flex items-center gap-2"
+                    class=" hover:bg-red-700 text-red-700 px-3 py-4 rounded transition flex items-center gap-2"
                     title="حذف نهائي"
                   >
                     <i class="fa-solid fa-trash"></i>
